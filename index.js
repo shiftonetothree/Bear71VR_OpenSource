@@ -20,24 +20,26 @@ const textureLoader = require('./lib/assets/loadTexture');
 const GridWorldApp = require('./lib/GridWorldApp');
 const setupContent = require('./lib/sections/vr-content');
 
-const canvas = document.querySelector('#canvas');
-
-const app = new GridWorldApp(undefined, canvas);
-
-// Set a renderer on our texture loader so that
-// we can upload textures immediately after preloading them
-textureLoader.setRenderer(app.renderer);
-
-const state = {
-  time: 0.5,
-  daytime: 1,
-  dayNight: 1,
-  interactive: true,
-  gridInteractive: true
-};
-
-app.state = state;
-
-setupContent({ app, state, mapConfig: undefined });
-
-app.startMagicWindow();
+module.exports = {
+  init: function(canvas, mapConfig){
+    const app = new GridWorldApp(undefined, canvas);
+    
+    // Set a renderer on our texture loader so that
+    // we can upload textures immediately after preloading them
+    textureLoader.setRenderer(app.renderer);
+    
+    const state = {
+      time: 0.5,
+      daytime: 1,
+      dayNight: 1,
+      interactive: true,
+      gridInteractive: true
+    };
+    
+    app.state = state;
+    
+    setupContent({ app, state, mapConfig });
+    
+    app.startMagicWindow();
+  }
+}

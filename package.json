@@ -2,7 +2,7 @@
   "name": "Bear71VR_OpenSource",
   "version": "1.0.5",
   "description": "A demo of the sprite map technique from Bear 71 VR",
-  "main": "dist/module.js",
+  "main": "app/bundle.js",
   "license": "MIT",
   "author": {
     "name": "Tomasz Dysinski",
@@ -36,12 +36,11 @@
   },
   "scripts": {
     "test": "node test.js",
-    "start": "budo index.js:bundle.js -d app --live -- -t babelify -t glslify",
-    "start:ssl": "budo index.js:bundle.js -d app --ssl --live -- -t babelify -t glslify",
-    "build-debug": "browserify index.js -d -t babelify -t glslify > app/bundle.js",
-    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js",
-    "build-module": "browserify module.js -s Bear71VR_OpenSource -t babelify -t glslify > dist/module.js",
-    "prepublishOnly": "npm run build-module"
+    "start": "budo index.js:bundle.js -d app --live -- -s Bear71VR_OpenSource -t babelify -t glslify",
+    "start:ssl": "budo index.js:bundle.js -d app --ssl --live -- -s Bear71VR_OpenSource -t babelify -t glslify",
+    "build-debug": "browserify index.js -s Bear71VR_OpenSource -d -t babelify -t glslify > app/bundle.js",
+    "build": "browserify index.js -s Bear71VR_OpenSource -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "repository": {
