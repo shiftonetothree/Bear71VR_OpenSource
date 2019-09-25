@@ -18,6 +18,14 @@ The process of creating map.png is more art than science, so no specific tool wi
 
 Our spritesheet has 32 slots in it, which we didn't fully use. The unused slots are represented as red waffles. You can experiment with the look by trying different versions of the spritesheet, like assets/images/spritesheet-3d.png.
 
+Ripple core code:
+
+    //displace sprites by rippleMap
+    pos.x += rippleTexel.r * 0.1 - 0.05;
+    pos.z += rippleTexel.g * 0.1 - 0.05;
+
+rippleTexel is app/assets/images/ripple-normals.png: ![app/assets/images/ripple-normals.png](app/assets/images/ripple-normals.png)
+
 ## Setup
 
 For development;
