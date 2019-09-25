@@ -1,16 +1,15 @@
 {
   "name": "Bear71VR_OpenSource",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A demo of the sprite map technique from Bear 71 VR",
-  "main": "index.js",
+  "main": "dist/module.js",
   "license": "MIT",
   "author": {
     "name": "Tomasz Dysinski",
     "email": "tom@jam3.com",
     "url": "https://github.com/Jam3"
   },
-  "private": true,
-  "dependencies": {
+  "devDependencies": {
     "babel-polyfill": "^6.20.0",
     "clamp": "^1.0.1",
     "eases": "^1.0.8",
@@ -27,9 +26,7 @@
     "three": "^0.81.2",
     "touches": "^1.2.0",
     "urlparam": "^1.0.2",
-    "webvr-polyfill": "^0.9.23"
-  },
-  "devDependencies": {
+    "webvr-polyfill": "^0.9.23",
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
@@ -42,7 +39,9 @@
     "start": "budo index.js:bundle.js -d app --live -- -t babelify -t glslify",
     "start:ssl": "budo index.js:bundle.js -d app --ssl --live -- -t babelify -t glslify",
     "build-debug": "browserify index.js -d -t babelify -t glslify > app/bundle.js",
-    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js"
+    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js",
+    "build-module": "browserify module.js -s Bear71VR_OpenSource -t babelify -t glslify > dist/module.js",
+    "prepublishOnly": "npm run build-module"
   },
   "keywords": [],
   "repository": {
