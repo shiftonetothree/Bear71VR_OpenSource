@@ -24,7 +24,12 @@ Ripple core code:
     pos.x += rippleTexel.r * 0.1 - 0.05;
     pos.z += rippleTexel.g * 0.1 - 0.05;
 
-rippleTexel is app/assets/images/ripple-normals.png: ![app/assets/images/ripple-normals.png](app/assets/images/ripple-normals.png)
+rippleTexel is app/assets/images/ripple-normals.png: ![app/assets/images/ripple-normals.png](app/assets/images/ripple-normals.png).
+
+Scene origin point at corner of the map. map size is 128.
+    
+    lane.scale.set(128, 128, 128);
+    plane.position.set(64, 64, 6);
 
 ## Setup
 
