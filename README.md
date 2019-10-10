@@ -18,9 +18,9 @@ The process of creating map.png is more art than science, so no specific tool wi
 
 Our spritesheet has 32 slots in it, which we didn't fully use. The unused slots are represented as red waffles. You can experiment with the look by trying different versions of the spritesheet, like assets/images/spritesheet-3d.png.
 
-Ripple core code:
+Ripple is a postprocessing render on a off screen canvas, It's result used in PointCloud as a rippleTexel.PointCloud use rippleTexel like this:
 
-    //displace sprites by rippleMap
+    // displace sprites by rippleMap
     pos.x += rippleTexel.r * 0.1 - 0.05;
     pos.z += rippleTexel.g * 0.1 - 0.05;
 

@@ -1,4 +1,6 @@
 window.THREE = require('three');
+require('three/examples/js/loaders/GLTFLoader');
+require('three/examples/js/renderers/CSS2DRenderer');
 require('./lib/vendor/three.FlatShadedMaterial');
 require('./lib/vendor/VRControls');
 require('./lib/vendor/VREffect');
