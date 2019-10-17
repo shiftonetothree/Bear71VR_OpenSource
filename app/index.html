@@ -62,30 +62,22 @@
       console.log("destroy");
       window.Bear71VR_OpenSource.destroy();
     }
-    // window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    // console.log("init");
-    // setTimeout(()=>{
-    //   window.Bear71VR_OpenSource.destroy();
-    //   console.log("destroy");
-    // },20000);
-    // setTimeout(()=>{
-    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    //   console.log("init");
-    // },20000+10000);
-    // setTimeout(()=>{
-    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    //   console.log("init");
-    // },20000 + 5000);
-    // for(let i=0;i<10;i++){
-    //   setTimeout(()=>{
-    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    //   console.log("init");
-    // },i*20000 + 5000);
-    // setTimeout(()=>{
-    //   window.Bear71VR_OpenSource.destroy();
-    //   console.log("destroy");
-    // },i*20000 + 100000);
-    // }
+
+    // memory leak test
+    let testCount = 100;
+    function cycle10(){
+      window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"),{},
+        ()=>{
+          window.Bear71VR_OpenSource.destroy();
+          testCount = testCount - 1;
+          if(testCount > 0){
+            cycle10();
+          }
+        }
+      );
+    }
+
+    cycle10();
     
   </script>
 </body>

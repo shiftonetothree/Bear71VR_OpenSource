@@ -24,7 +24,7 @@ const setupContent = require('./lib/sections/vr-content');
 let app;
 
 module.exports = {
-  init: (canvas, mapConfig) => {
+  init: (canvas, mapConfig, onLoaded) => {
     app = new GridWorldApp(undefined, canvas);
     
     // Set a renderer on our texture loader so that
@@ -41,7 +41,7 @@ module.exports = {
     
     app.state = state;
     
-    setupContent({ app, state, mapConfig });
+    setupContent({ app, state, mapConfig, onLoaded });
     
     app.startMagicWindow();
   },
