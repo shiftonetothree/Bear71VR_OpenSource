@@ -21,10 +21,11 @@ const textureLoader = require('./lib/assets/loadTexture');
 
 const GridWorldApp = require('./lib/GridWorldApp');
 const setupContent = require('./lib/sections/vr-content');
+let app;
 
 module.exports = {
   init: (canvas, mapConfig) => {
-    const app = new GridWorldApp(undefined, canvas);
+    app = new GridWorldApp(undefined, canvas);
     
     // Set a renderer on our texture loader so that
     // we can upload textures immediately after preloading them
@@ -43,5 +44,14 @@ module.exports = {
     setupContent({ app, state, mapConfig });
     
     app.startMagicWindow();
-  }
+  },
+  destroy(){
+    app.stop();
+    app.destroy();
+    app = null;
+  },
+  registerLocation(fn){
+
+  },
+
 }

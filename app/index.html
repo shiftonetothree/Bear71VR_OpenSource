@@ -46,11 +46,31 @@
 <body>
   <canvas id="canvas"></canvas>
   <div id="minimap" style="width: 128px;height: 128px;border: 1px solid red;position: absolute;">
-    <div id="location" style="width: 10px;height: 10px;position: absolute;background-color: white;"></div>
+    <div id="location" style="width: 10px;height: 10px;position: absolute;background-color: white;color:red;font-size: 10px;line-height: 10px;text-align: center;">A</div>
   </div>
   <script src="bundle.js"></script>
   <script>
     window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    console.log("init");
+    // setTimeout(()=>{
+    //   window.Bear71VR_OpenSource.destroy();
+    //   console.log("destroy");
+    // },20000);
+    // setTimeout(()=>{
+    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    //   console.log("init");
+    // },20000 + 5000);
+    // for(let i=0;i<10;i++){
+    //   setTimeout(()=>{
+    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    //   console.log("init");
+    // },i*20000 + 5000);
+    // setTimeout(()=>{
+    //   window.Bear71VR_OpenSource.destroy();
+    //   console.log("destroy");
+    // },i*20000 + 100000);
+    // }
+    
   </script>
 </body>
 </html>
