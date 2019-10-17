@@ -64,14 +64,17 @@
     }
 
     // memory leak test
-    let testCount = 100;
+    let testCount = 10;
     function cycle10(){
+      console.log("last "+testCount+" times test")
       window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"),{},
         ()=>{
           window.Bear71VR_OpenSource.destroy();
           testCount = testCount - 1;
           if(testCount > 0){
             cycle10();
+          }else{
+            console.log("test finish");
           }
         }
       );
