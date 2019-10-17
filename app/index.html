@@ -48,14 +48,30 @@
   <div id="minimap" style="width: 128px;height: 128px;border: 1px solid red;position: absolute;">
     <div id="location" style="width: 10px;height: 10px;position: absolute;background-color: white;color:red;font-size: 10px;line-height: 10px;text-align: center;">A</div>
   </div>
+  <div style="position: absolute;right: 0;">
+    <button onclick="init()">init</button>
+    <button onclick="destroy()">destroy</button>
+  </div>
   <script src="bundle.js"></script>
   <script>
-    window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    console.log("init");
+    function init(){
+      console.log("init");
+      window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    }
+    function destroy(){
+      console.log("destroy");
+      window.Bear71VR_OpenSource.destroy();
+    }
+    // window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    // console.log("init");
     // setTimeout(()=>{
     //   window.Bear71VR_OpenSource.destroy();
     //   console.log("destroy");
     // },20000);
+    // setTimeout(()=>{
+    //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
+    //   console.log("init");
+    // },20000+10000);
     // setTimeout(()=>{
     //   window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
     //   console.log("init");
