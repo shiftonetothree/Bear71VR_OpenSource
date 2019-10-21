@@ -17,15 +17,15 @@ require('babel-polyfill');
 // improve click response
 require('fastclick')(document.body);
 
+const assets = require('./lib/assets');
 const textureLoader = require('./lib/assets/loadTexture');
 
 const GridWorldApp = require('./lib/GridWorldApp');
 const setupContent = require('./lib/sections/vr-content');
-let app;
 
 module.exports = {
   init: (canvas, mapConfig, onLoaded) => {
-    app = new GridWorldApp(undefined, canvas);
+    let app = new GridWorldApp(undefined, canvas);
     
     // Set a renderer on our texture loader so that
     // we can upload textures immediately after preloading them
@@ -41,14 +41,21 @@ module.exports = {
     
     app.state = state;
     
-    setupContent({ app, state, mapConfig, onLoaded });
+    setupContent({ 
+      app, 
+      state, 
+      mapConfig, 
+      onLoaded: function(destroyContent){
+        function destroy(){
+          app.stop();
+          app.destroy();
+          destroyContent();
+        }
+        onLoaded(destroy);
+      } 
+    });
     
     app.startMagicWindow();
-  },
-  destroy(){
-    app.stop();
-    app.destroy();
-    app = null;
   },
   registerLocation(fn){
 

@@ -51,36 +51,50 @@
   <div style="position: absolute;right: 0;">
     <button onclick="init()">init</button>
     <button onclick="destroy()">destroy</button>
+    <button onclick="testMemory()">test memory 10 times</button>
   </div>
   <script src="bundle.js"></script>
   <script>
+    var destroyMap;
     function init(){
       console.log("init");
-      window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"));
-    }
-    function destroy(){
-      console.log("destroy");
-      window.Bear71VR_OpenSource.destroy();
-    }
-
-    // memory leak test
-    let testCount = 10;
-    function cycle10(){
-      console.log("last "+testCount+" times test")
-      window.Bear71VR_OpenSource.init(window.document.getElementById("canvas"),{},
-        ()=>{
-          window.Bear71VR_OpenSource.destroy();
-          testCount = testCount - 1;
-          if(testCount > 0){
-            cycle10();
-          }else{
-            console.log("test finish");
-          }
+      window.Bear71VR_OpenSource.init(
+        window.document.getElementById("canvas"),
+        {},
+        (destroyMapIn)=>{
+          destroyMap = destroyMapIn;
         }
       );
     }
+    function destroy(){
+      console.log("destroy");
+      destroyMap();
+      destroyMap = null;
+    }
 
-    cycle10();
+    function testMemory(){
+      // memory leak test
+      let testCount = 10;
+      function cycle10(){
+        console.log("last "+testCount+" times test")
+        window.Bear71VR_OpenSource.init(
+          window.document.getElementById("canvas"),
+          {},
+          (destroyMap)=>{
+            destroyMap();
+            testCount = testCount - 1;
+            if(testCount > 0){
+              cycle10();
+            }else{
+              console.log("test finish");
+            }
+          }
+        );
+      }
+
+      cycle10();
+    }
+    
     
   </script>
 </body>
