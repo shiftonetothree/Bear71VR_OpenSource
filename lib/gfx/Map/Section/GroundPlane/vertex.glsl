@@ -18,7 +18,7 @@ void main() {
 
   vec4 mapTexel = texture2D(mapTexture, mapCoord);
 
-  vec4 pos = vec4(position.x, mapTexel.b, position.y, 1.0);
+  vec4 pos = vec4(position.x, mapTexel.r, position.y, 1.0);
 
   vec4 eyePos = modelViewMatrix * pos;
   gl_Position = projectionMatrix * eyePos;

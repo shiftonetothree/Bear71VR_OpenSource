@@ -29,7 +29,7 @@ void main() {
   //mapTexel position also influences the point size, so sprites at the beginning of spritesheet are smaller than sprites near the end
   vec4 eyePos = modelViewMatrix * pos;
   vec4 projCorner = projectionMatrix * vec4(16.0, 16.0, eyePos.z, eyePos.w);
-  gl_PointSize = screenPixelHeight * projectionMatrix[1][1] / projCorner.w * spriteScale * (mapTexel.g + 0.1);
+  gl_PointSize = screenPixelHeight * projectionMatrix[1][1] / projCorner.w * spriteScale * (mapTexel.b + 0.1);
   gl_Position = projectionMatrix * eyePos;
 
   //fudge sprite pixels

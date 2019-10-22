@@ -10,7 +10,7 @@ To render an image map as an interactive field of sprites, we designed a point c
 
 You can take a look at the map data in app/assets/images/map.png
 
-For each pixel in our map, we use the red channel to depict height, and the green channel to depict the sprite index. Each green value divided by 8 is the index on our spritesheet image. For our specific look, we also organized our sprites from smallest to largest so that we can use the index as the size as well, to reduce on overdraw on sprites with lots of empty space.
+For each pixel in our map, we use the red channel to depict height, and the green channel to depict the sprite index, the blue channel to depict size.
 
 You can see the original colored map in app/assets/images/map-legend-aesthetic.png
 
