@@ -55,24 +55,37 @@
   </div>
   <script src="bundle.js"></script>
   <script>
-    const locations = [
-      {
-          "model": "assets/images/light_beam.gltf",
-          "position": [64,0,60],
-          "scale": [0.1,0.1,0.1],
-          "key": "1",
-          "name": "Earth",
-          "namePosition": [64,30,60],
-      },
-      {
-          "model": "assets/images/light_beam.gltf",
-          "position": [60,5,60],
-          "scale": [0.1,0.1,0.1],
-          "key": "1",
-          "name": "Earth",
-          "namePosition": [60,0,60],
-      }
-    ]
+    const names = [
+      "可持续发展试验示范区",
+      "旅游示范县",
+      "农业产业化省级重点龙头企业",
+      "农业产业强镇建设",
+      "农业科技创新能力条件建设项目",
+      "区域生态循环农业项目",
+      "省级现代农业产业园",
+      "数字农业建设试点项目",
+      "文化遗产",
+      "物联网",
+      "休闲农业三星以上",
+      "玉米繁育推一体化示范项目",
+      "综合开发区域生态循环农业项目",
+      "最美休闲乡",
+    ];
+
+    const locations = names.map((name)=>{
+
+      const x = (Math.random() - 0.5) * 20 + 50;
+      const z = (Math.random() - 0.5) * 20 + 50;
+      return {
+          "model": `assets/images/${name}.gltf`,
+          "position": [x, 0, z],
+          "scale": [0.05,0.05,0.05],
+          "key": name,
+          "name": name,
+          "namePosition": [x,15,z],
+      };
+    });
+    
     var destroyMap;
     function init(){
       console.log("init");
