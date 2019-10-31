@@ -113,7 +113,9 @@
         console.log("last "+testCount+" times test")
         window.Bear71VR_OpenSource.init(
           window.document.getElementById("canvas"),
-          {},
+          {
+            locations: locations,
+          },
           (destroyMap)=>{
             destroyMap();
             testCount = testCount - 1;
