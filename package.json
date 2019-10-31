@@ -1,6 +1,6 @@
 {
   "name": "Bear71VR_OpenSource",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "A demo of the sprite map technique from Bear 71 VR",
   "main": "app/bundle.js",
   "license": "MIT",
