@@ -5,6 +5,10 @@ export declare const init: (
         spritesheetUrl: string,
         rippleMaterialUrl: string,
         locations: Location[],
+        userFootHeight: number,
+        mapSize: number,
+        cursorMaxHitDistance: number,
+        metersPerSecond: number
     },
     onLoaded:(destroy: ()=>void)=>void
 )=>void

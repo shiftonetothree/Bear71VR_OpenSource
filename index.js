@@ -23,8 +23,11 @@ const textureLoader = require('./lib/assets/loadTexture');
 const GridWorldApp = require('./lib/GridWorldApp');
 const setupContent = require('./lib/sections/vr-content');
 
+const settings = require('./lib/gfx/settings');
+
 module.exports = {
   init: (canvas, mapConfig, onLoaded) => {
+    Object.assign(settings, mapConfig);
     let app = new GridWorldApp(undefined, canvas);
     
     // Set a renderer on our texture loader so that

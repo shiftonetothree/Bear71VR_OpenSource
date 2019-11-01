@@ -74,8 +74,8 @@
 
     const locations = names.map((name)=>{
 
-      const x = (Math.random() - 0.5) * 20 + 50;
-      const z = (Math.random() - 0.5) * 20 + 50;
+      const x = (Math.random() - 0.5) * 64 + 50;
+      const z = (Math.random() - 0.5) * 64 + 50;
       return {
           "model": `assets/images/${name}.gltf`,
           "position": [x, 0, z],
@@ -96,6 +96,10 @@
         window.document.getElementById("canvas"),
         {
           locations: locations,
+          userFootHeight: 2.4 * 12,
+          mapSize: 32 * 8,
+          cursorMaxHitDistance: 11 * 20,
+          metersPerSecond: 2.1 * 20
         },
         (destroyMapIn)=>{
           destroyMap = destroyMapIn;
