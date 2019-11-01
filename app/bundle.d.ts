@@ -6,7 +6,7 @@ export declare const init: (
         rippleMaterialUrl: string,
         locations: Location[],
     },
-    onLoaded:(destroy: ()=>void)=>any
+    onLoaded:(destroy: ()=>void)=>void
 )=>void
 
 
@@ -17,4 +17,5 @@ export interface Location{
     key: string,
     name: string,
     namePosition: [number, number, number],
+    onclick: () => any
 }
