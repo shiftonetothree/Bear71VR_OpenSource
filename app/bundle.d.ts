@@ -11,10 +11,10 @@ export interface MapConfig{
     locations: Location[],
 }
 export interface Setting{
-    userFootHeight: number,
-    mapSize: number,
-    cursorMaxHitDistance: number,
-    metersPerSecond: number
+    userFootHeight?: number,
+    mapSize?: number,
+    cursorMaxHitDistance?: number,
+    metersPerSecond?: number
 }
 
 
