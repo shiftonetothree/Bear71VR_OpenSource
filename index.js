@@ -54,7 +54,7 @@ module.exports = {
           app.destroy();
           destroyContent();
         }
-        onLoaded(destroy);
+        onLoaded(destroy, settings);
       } 
     });
     

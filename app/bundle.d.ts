@@ -1,17 +1,21 @@
 export declare const init: (
     canvas: HTMLCanvasElement,
-    mapConfig: {
-        mapUrl: string,
-        spritesheetUrl: string,
-        rippleMaterialUrl: string,
-        locations: Location[],
-        userFootHeight: number,
-        mapSize: number,
-        cursorMaxHitDistance: number,
-        metersPerSecond: number
-    },
-    onLoaded:(destroy: ()=>void)=>void
+    mapConfig: MapConfig & Setting,
+    onLoaded:(destroy: ()=>void, settings: Setting)=>void
 )=>void
+
+export interface MapConfig{
+    mapUrl: string,
+    spritesheetUrl: string,
+    rippleMaterialUrl: string,
+    locations: Location[],
+}
+export interface Setting{
+    userFootHeight: number,
+    mapSize: number,
+    cursorMaxHitDistance: number,
+    metersPerSecond: number
+}
 
 
 export interface Location{

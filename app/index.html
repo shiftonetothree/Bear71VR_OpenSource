@@ -52,6 +52,8 @@
     <button onclick="init()">init</button>
     <button onclick="destroy()">destroy</button>
     <button onclick="testMemory()">test memory 10 times</button>
+    <button onclick="up()">up</button>
+    <button onclick="down()">down</button>
   </div>
   <script src="bundle.js"></script>
   <script>
@@ -90,6 +92,7 @@
     });
     
     var destroyMap;
+    var settings;
     function init(){
       console.log("init");
       window.Bear71VR_OpenSource.init(
@@ -101,7 +104,8 @@
           cursorMaxHitDistance: 11 * 20,
           metersPerSecond: 2.1 * 20
         },
-        (destroyMapIn)=>{
+        (destroyMapIn, settingsIn)=>{
+          settings = settingsIn;
           destroyMap = destroyMapIn;
         }
       );
@@ -123,7 +127,8 @@
           {
             locations: locations,
           },
-          (destroyMap)=>{
+          (destroyMap, settingsIn)=>{
+            settings = settingsIn;
             destroyMap();
             testCount = testCount - 1;
             if(testCount > 0){
@@ -136,6 +141,20 @@
       }
 
       cycle10();
+    }
+
+    function up(){
+      settings.userFootHeight = 2.4 * 12;
+      settings.mapSize = 32 * 8;
+      settings.cursorMaxHitDistance = 11 * 20;
+      settings.metersPerSecond = 2.1 * 20;
+    }
+
+    function down(){
+      settings.userFootHeight = 2.4 * 1;
+      settings.mapSize = 32 * 1;
+      settings.cursorMaxHitDistance = 11 * 1;
+      settings.metersPerSecond = 2.1 * 1;
     }
     
     
