@@ -48,13 +48,13 @@ module.exports = {
       app, 
       state, 
       mapConfig, 
-      onLoaded: function(destroyContent){
+      onLoaded: function(destroyContent, map){
         function destroy(){
           app.stop();
           app.destroy();
           destroyContent();
         }
-        onLoaded(destroy, settings);
+        onLoaded(destroy, settings, map);
       } 
     });
     

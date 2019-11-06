@@ -54,6 +54,8 @@
     <button onclick="testMemory()">test memory 10 times</button>
     <button onclick="up()">up</button>
     <button onclick="down()">down</button>
+    <button onclick="to()">to</button>
+    <button onclick="changeSpritesheet()">changeSpritesheet</button>
   </div>
   <script src="bundle.js"></script>
   <script>
@@ -93,6 +95,7 @@
     
     var destroyMap;
     var settings;
+    var map;
     function init(){
       console.log("init");
       window.Bear71VR_OpenSource.init(
@@ -104,9 +107,10 @@
           cursorMaxHitDistance: 11 * 20,
           metersPerSecond: 2.1 * 20
         },
-        (destroyMapIn, settingsIn)=>{
+        (destroyMapIn, settingsIn, mapIn)=>{
           settings = settingsIn;
           destroyMap = destroyMapIn;
+          map = mapIn;
         }
       );
     }
@@ -115,6 +119,8 @@
       console.log("destroy");
       destroyMap();
       destroyMap = null;
+      settings = null;
+      map = null;
     }
 
     function testMemory(){
@@ -127,8 +133,9 @@
           {
             locations: locations,
           },
-          (destroyMap, settingsIn)=>{
+          (destroyMap, settingsIn, mapIn)=>{
             settings = settingsIn;
+            map = mapIn;
             destroyMap();
             testCount = testCount - 1;
             if(testCount > 0){
@@ -155,6 +162,18 @@
       settings.mapSize = 32 * 1;
       settings.cursorMaxHitDistance = 11 * 1;
       settings.metersPerSecond = 2.1 * 1;
+    }
+
+    function to(){
+      map.moveCamera([0,0], undefined, 
+      function (){
+        // settings.userFootHeight = 2.4 * 1
+        map.moveCamera([0,0], 0, undefined, undefined, false);
+      }, 0, true);
+    }
+
+    function changeSpritesheet(){
+      map.changeSpritesheet(`assets/images/spritesheet.png`);
     }
     
     
