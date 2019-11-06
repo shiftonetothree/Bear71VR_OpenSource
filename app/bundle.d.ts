@@ -1,7 +1,7 @@
 export declare const init: (
     canvas: HTMLCanvasElement,
     mapConfig: MapConfig & Setting,
-    onLoaded:(destroy: ()=>void, settings: Setting)=>void
+    onLoaded:(destroy: ()=>void, settings: Setting, map: Map)=>void
 )=>void
 
 export interface MapConfig{
@@ -26,4 +26,9 @@ export interface Location{
     name: string,
     namePosition: [number, number, number],
     onclick: () => any
+}
+
+export interface Map{
+    moveCamera(location: [number,number], duration?: number, onComplete?: ()=>any, height?:number, white?: boolean): void;
+    changeSpritesheet(url: string): void;
 }
