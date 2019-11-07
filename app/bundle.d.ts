@@ -9,7 +9,7 @@ export interface MapConfig{
     spritesheetUrl: string,
     rippleMaterialUrl: string,
     locations: Location[],
-    onMove: (x: number, y: number, rotate: number) => any
+    onMove?: (x: number, y: number, rotate: number) => any
 }
 export interface Setting{
     userFootHeight?: number,
