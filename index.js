@@ -28,7 +28,7 @@ const settings = require('./lib/gfx/settings');
 module.exports = {
   init: (canvas, mapConfig, onLoaded) => {
     Object.assign(settings, mapConfig);
-    let app = new GridWorldApp(undefined, canvas);
+    let app = new GridWorldApp(settings, canvas);
     
     // Set a renderer on our texture loader so that
     // we can upload textures immediately after preloading them

@@ -76,6 +76,14 @@
       "最美休闲乡",
     ];
 
+    function onMove(x, y, rotate){
+      const location = document.getElementById("location");
+      location.style.left = x * 100 + "%";
+      location.style.top = y * 100 + "%";
+      location.style.transform = `rotateZ(${(rotate/Math.PI)*180}deg)`;
+    }
+    
+
     const locations = names.map((name)=>{
 
       const x = (Math.random() - 0.5) * 64 + 50;
@@ -105,7 +113,8 @@
           userFootHeight: 2.4 * 12,
           mapSize: 32 * 8,
           cursorMaxHitDistance: 11 * 20,
-          metersPerSecond: 2.1 * 20
+          metersPerSecond: 2.1 * 20,
+          onMove: onMove,
         },
         (destroyMapIn, settingsIn, mapIn)=>{
           settings = settingsIn;
