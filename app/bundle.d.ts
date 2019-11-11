@@ -9,6 +9,7 @@ export interface MapConfig{
     spritesheetUrl: string,
     rippleMaterialUrl: string,
     locations: Location[],
+    showAxesHelper?: boolean,
     onMove?: (x: number, y: number, rotate: number) => any
 }
 export interface Setting{

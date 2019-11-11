@@ -1,6 +1,6 @@
 {
   "name": "Bear71VR_OpenSource",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "description": "A demo of the sprite map technique from Bear 71 VR",
   "main": "app/bundle.js",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "mobile-detect": "^1.3.3",
     "object-assign": "^4.1.1",
     "orbit-controls": "^1.1.1",
+    "resize-observer-polyfill": "^1.5.1",
     "three": "^0.109.0",
     "touches": "^1.2.0",
     "uglify-js": "^2.6.2",
