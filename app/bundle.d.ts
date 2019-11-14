@@ -26,6 +26,7 @@ export interface Location{
     scale: [number, number, number],
     key: string,
     name: string,
+    category: string,
     namePosition: [number, number, number],
     onclick: () => any
 }
