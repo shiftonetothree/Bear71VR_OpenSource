@@ -123,6 +123,7 @@
           destroyMap = destroyMapIn;
           map = mapIn;
           setHighlight();
+          map.updateSectionOffset(0.03);
         }
       );
     }
@@ -176,6 +177,8 @@
       settings.mapSize = 32 * 8;
       settings.cursorMaxHitDistance = 11 * 20;
       settings.metersPerSecond = 2.1 * 20;
+      settings.groundPlaneOffset = -1;
+      map.updateSectionOffset(0.02);
     }
 
     function down(){
@@ -183,6 +186,8 @@
       settings.mapSize = 32 * 8;
       settings.cursorMaxHitDistance = 11 * 1;
       settings.metersPerSecond = 2.1 * 0.2;
+      settings.groundPlaneOffset = 0;
+      map.updateSectionOffset(0);
     }
 
     function to(){
