@@ -95,7 +95,8 @@
           "key": name,
           "name": name,
           "category": name,
-          "namePosition": [x,15,z],
+          "namePosition": [0,15,0],
+          "g": 96,
           onclick:()=>{
             alert(name);
           }
@@ -111,6 +112,8 @@
         window.document.getElementById("canvas"),
         {
           locations: locations,
+          carLikes: locations.slice(0,2),
+          carLikeG: {96: "road", 104: "railway"},
           userFootHeight: 2.4 * 12,
           mapSize: 32 * 8,
           cursorMaxHitDistance: 11 * 20,
@@ -154,6 +157,8 @@
           window.document.getElementById("canvas"),
           {
             locations: locations,
+            carLikes: locations.slice(0,2),
+            carLikeG: {96: "road", 104: "railway"},
           },
           (destroyMap, settingsIn, mapIn)=>{
             settings = settingsIn;

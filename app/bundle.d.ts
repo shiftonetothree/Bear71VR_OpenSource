@@ -9,6 +9,8 @@ export interface MapConfig{
     spritesheetUrl: string,
     rippleMaterialUrl: string,
     locations: Location[],
+    carLikes: Location[],
+    carLikeG: {[key: number]: string}
     showAxesHelper?: boolean,
     onMove?: (x: number, y: number, rotate: number) => any
 }
@@ -29,6 +31,10 @@ export interface Location{
     category: string,
     namePosition: [number, number, number],
     onclick: () => any
+}
+
+export type CarLike = Omit<Location,"position"> &{
+    g: number;
 }
 
 export interface Map{
