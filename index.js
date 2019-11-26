@@ -12,7 +12,7 @@ require('webvr-polyfill');
 require('./lib/util/fix-iOS-fullscreen');
 
 // needed for Promise and some other features
-require('babel-polyfill');
+// require('babel-polyfill');
 
 // improve click response
 require('fastclick')(document.body);
