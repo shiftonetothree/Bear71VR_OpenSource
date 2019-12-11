@@ -144,7 +144,7 @@
       })
       console.log(list);
       list.map(item => {
-        item.visible = false;
+        // item.visible = false;
       })
       
     }
@@ -178,7 +178,12 @@
     }
 
     function up(){
-      settings.userFootHeight = 2.4 * 12;
+      map.cameraChangeHeight(88, 2);
+      const target = {x: 63.343507344494455, y: 5.413562029627785, z: 55.30752122869849};
+      setTimeout(function () {
+        map.rotateCamera(target, 3);
+      }, 2000);
+      // settings.userFootHeight = 2.4 * 12;
       settings.mapSize = 32 * 8;
       settings.cursorMaxHitDistance = 11 * 20;
       settings.metersPerSecond = 2.1 * 20;
@@ -187,7 +192,7 @@
     }
 
     function down(){
-      settings.userFootHeight = 2.4 * 1;
+      map.cameraChangeHeight(2.4, 2);
       settings.mapSize = 32 * 8;
       settings.cursorMaxHitDistance = 11 * 1;
       settings.metersPerSecond = 2.1 * 0.2;
@@ -196,11 +201,30 @@
     }
 
     function to(){
-      map.moveCamera([0,0], undefined, 
-      function (){
-        // settings.userFootHeight = 2.4 * 1
-        map.moveCamera([0,0], 0, undefined, undefined, false);
-      }, 0, true);
+     // map.rotateCamera({x: 0, y: 0, z: 0});
+     const list = map.locations.map(function (object) { return object.position}).filter(item => item.x !== undefined);
+      console.log("posiitonssss", list, locations);
+      map.moveAndRotateCamera(list[0], 10);
+      setTimeout(function () {
+        map.moveAndRotateCamera(list[1], 10);
+      }, 10000)
+      setTimeout(function () {
+        map.moveAndRotateCamera(list[2], 10);
+      }, 30000)
+      
+      
+      // map.moveAndRotateCamera(list[3], undefined); 
+      // map.rotateCamera(list[0], 3);
+      // // map.moveCamera([list[8].x, list[8].z], 3);
+      // setTimeout(function(){
+      //   map.moveCamera([list[0].x, list[0].z], 3);
+      // }, 3000);
+      // setTimeout(function(){
+      //   map.rotateCamera(list[6], 3);
+      // }, 6000);
+      // setTimeout(function(){
+      //   map.moveCamera([list[6].x, list[6].z], 3);
+      // }, 9000);
     }
 
     function changeSpritesheet(){
