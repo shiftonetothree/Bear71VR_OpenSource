@@ -41,7 +41,8 @@ export interface Map{
     moveCamera(location: [number,number], duration?: number, onComplete?: ()=>any, height?:number, white?: boolean): void;
     changeSpritesheet(url: string): void;
     updateSectionOffset(offset: number): void;
-    moveAndRotateCamera(location: any, duration: number): any;
+    moveAndRotateCamera(location: any, duration: number, id:number): any;
     cameraChangeHeight(height: number, duration: number): void;
     rotateCamera(location: any, duration: number): void;
+    stopMovingCamera():void;
 }
