@@ -54,8 +54,10 @@
     <button onclick="testMemory()">test memory 10 times</button>
     <button onclick="up()">up</button>
     <button onclick="down()">down</button>
+    <button onclick="rotate()">rotate</button>
     <button onclick="to()">to</button>
     <button onclick="changeSpritesheet()">changeSpritesheet</button>
+    
   </div>
   <script src="bundle.js"></script>
   <script>
@@ -182,10 +184,6 @@
     function up(){
       event.stopPropagation();
       map.cameraChangeHeight(2.4 * 12, 2);
-      const target = {x: 63.343507344494455, y: 5.413562029627785, z: 55.30752122869849};
-      setTimeout(function () {
-        map.rotateCamera(target, 3);
-      }, 2000);
       // settings.userFootHeight = 2.4 * 12;
       settings.mapSize = 32 * 8;
       settings.cursorMaxHitDistance = 11 * 20;
@@ -201,6 +199,11 @@
       settings.metersPerSecond = 2.1 * 0.2;
       settings.groundPlaneOffset = 0;
       map.updateSectionOffset(0);
+    }
+
+    function rotate(){
+      const target = {x: 64, y: 64, z: 55.30752122869849};
+      map.rotateCamera(target, 3);
     }
 
     function to(){
