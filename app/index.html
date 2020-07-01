@@ -103,7 +103,8 @@
           "namePosition": [0,15,0],
           "g": 96,
           onclick:()=>{
-            alert(name);
+            alert(name+","+JSON.stringify([x, 0, z]));
+            this.map.rotateCamera({x:x,y:0,z:z},3);
           }
       };
     });
@@ -202,7 +203,7 @@
     }
 
     function rotate(){
-      const target = {x: 64, y: 64, z: 55.30752122869849};
+      const target = {x: 64, y: 0, z: 64};
       map.rotateCamera(target, 3);
     }
 
