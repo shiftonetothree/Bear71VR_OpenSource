@@ -90,6 +90,7 @@
     
 
     const locations = names.map((name)=>{
+      const that = this;
 
       const x = (Math.random() - 0.5) * 64 + 50;
       const z = (Math.random() - 0.5) * 64 + 50;
@@ -102,9 +103,9 @@
           "category": name,
           "namePosition": [0,15,0],
           "g": 96,
-          onclick:()=>{
-            alert(name+","+JSON.stringify([x, 0, z]));
-            this.map.rotateCamera({x:x,y:0,z:z},3);
+          onclick:function(){
+            alert(name+","+JSON.stringify(this.position));
+            that.map.rotateCamera(this.position,3);
           }
       };
     });
