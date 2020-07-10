@@ -45,4 +45,5 @@ export interface Map{
     cameraChangeHeight(height: number, duration: number): void;
     rotateCamera(location: any, duration: number): void;
     stopMovingCamera():void;
+    moveWithCurve(location: any, duration: number, pointsNumber: number, showLine: boolean): any;
 }
